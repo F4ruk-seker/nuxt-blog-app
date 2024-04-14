@@ -9,13 +9,19 @@
                             <font-awesome-icon :icon="modal_menu ?  ['fas', 'bars']:['fas', 'x']" />
                         </button>
                     </li>
-                    <ul :class=" (modal_menu ? 'hidden':'') + ' md:block ' ">
-                        <li>
-                            <button class="bg-white hover:bg-gray-100 text-gray-800 hover:text-orange-500 font-bold py-2 px-4 border-2 border-white rounded-0 w-full">
-                                Tag 22
-                            </button>
-                        </li>
-                    </ul>
+                    <li>
+                        <ul :class=" (modal_menu ? 'hidden':'') + ' md:block ' ">
+                            <li>
+                                <button class="dark:bg-transparent dark:border-0 dark:hover:bg-gray-900 dark:text-orange-500 bg-white hover:bg-gray-100 text-gray-800 hover:text-orange-500 font-bold py-2 px-4 border-2 border-white rounded-0 w-full">
+                                    Tag 22
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><hr></li>
+                    <li>
+                        <ColorMode />
+                    </li>
                 </ul>
             </article>
             <article class="w-full mt-10 md:mt-0">
@@ -27,6 +33,8 @@
 </template>
 
 <script setup>
+import ColorMode from '@/components/theme/ColorMode.vue';
+
 const modal_menu = ref(true)
 
 // + (modal_menu ? 'show':'hidden')"

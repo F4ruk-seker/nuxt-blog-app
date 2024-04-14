@@ -19,6 +19,7 @@
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@nuxtjs/color-mode": "^3.4.0",
     "vue-fontawesome": "^0.0.2"
   }
 }

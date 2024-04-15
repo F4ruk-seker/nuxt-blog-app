@@ -40,7 +40,7 @@
                 <hr>                
             </article>
             <article class="w-full md:w-3/12 absolute md:static border-0 border-e border-gray-100">
-            s
+            barx
             </article>
         </section>
     </section>

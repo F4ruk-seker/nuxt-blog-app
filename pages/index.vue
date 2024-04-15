@@ -1,7 +1,7 @@
 <template>
     <section class=" h-screen">
-        <section class="w-full xl:container m-auto flex h-screen bg-blend-lighten hover:bg-blend-darken static">
-            <article class="w-full md:w-3/12 absolute md:static">
+        <section class="w-full m-auto flex h-screen bg-blend-lighten hover:bg-blend-darken static">
+            <article class="w-full md:w-3/12 absolute md:static border-0 border-e border-gray-100">
                 <ul class="list-none">
                     <li class="flex w-full h-full relative">
                         <h1 class="bg-white md:bg-orange-600 text-orange-600 md:text-white  font-bold text-center py-2 w-f w-full">BLOG</h1>
@@ -9,7 +9,7 @@
                             <font-awesome-icon :icon="modal_menu ?  ['fas', 'bars']:['fas', 'x']" />
                         </button>
                     </li>
-                    <li>
+                    <li class="mt-auto">
                         <ul :class=" (modal_menu ? 'hidden':'') + ' md:block ' ">
                             <li>
                                 <button class="dark:bg-transparent dark:border-0 dark:hover:bg-gray-900 dark:text-orange-500 bg-white hover:bg-gray-100 text-gray-800 hover:text-orange-500 font-bold py-2 px-4 border-2 border-white rounded-0 w-full">
@@ -36,7 +36,11 @@
                 </ul>
             </article>
             <article class="w-full mt-10 md:mt-0">
+                <SearchBar />
                 <hr>                
+            </article>
+            <article class="w-full md:w-3/12 absolute md:static border-0 border-e border-gray-100">
+            s
             </article>
         </section>
     </section>

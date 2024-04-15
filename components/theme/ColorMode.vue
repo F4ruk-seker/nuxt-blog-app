@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div class="flex justify-between m-2 md:w-1/2 md:rounded-full border-2 border-y-0 m-auto py-5">
-      <button class="border-0 p-3 hover:text-orange-400 " :disabled="index==0" @click="decrease">
+      <button class="border-0 p-3 hover:text-orange-400" @click="decrease">
         <font-awesome-icon :icon="['fas', 'arrow-left']" />
       </button>
       <div class="m-3 shadow-lg">
@@ -18,7 +18,7 @@
           <span v-if="colorMode.preference === 'sepia'" ><font-awesome-icon :icon="['fas', 'mug-hot']" /></span>
         </Transition>
       </div>
-      <button class="border-0 p-3 hover:text-orange-400" :disabled="options.length-1 == index" @click="increase">
+      <button class="border-0 p-3 hover:text-orange-400" @click="increase">
         <font-awesome-icon :icon="['fas', 'arrow-right'] " />
       </button>
     </div>
@@ -51,15 +51,20 @@ const options = ref([
 function increase() {
   if (options.value.length - 1 > index.value) {
     index.value++;
-    set_icon()
+  } else {
+    index.value = 0
   }
+  set_icon()
 }
 
 function decrease() {
   if (index.value - 1 >= 0) {
     index.value--;
-    set_icon()
+  } else {
+    index.value = options.value.length - 1
   }
+  set_icon()
+
 }
 
 function set_icon() {

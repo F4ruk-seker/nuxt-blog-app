@@ -39,8 +39,8 @@
                 <SearchBar />
                 <hr>                
             </article>
-            <article class="w-full md:w-3/12 absolute md:static border-0 border-e border-gray-100">
-            barx
+            <article class="w-full hidden md:block md:w-3/12 absolute md:static border-0 border-e border-gray-100">
+                <h1 class="bg-white md:bg-orange-600 text-orange-600 md:text-white  font-bold text-center py-2 w-f w-full">Trends</h1>
             </article>
         </section>
     </section>

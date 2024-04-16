@@ -5,8 +5,9 @@
     <article class="w-4/12 text-center my-auto"><button class="border border-gray-600 bg-gray-900 px-2 py-1 rounded font-bold text-white">./SSH</button></article>
 </header>
 <div class="flex">
-    <code class="min-w-max ms-2"><span class="bg-gray-600 p-1 rounded font-semibold text-white">f4ruk@blog:</span> dump all blog context >> .</code>
-    <hr class="w-full ms-2 my-auto">
+    <div class="w-full bg-gray-200 rounded-0 h-1.5 dark:bg-gray-700 my-auto">
+        <div class="bg-orange-600 h-1.5 rounded-0" style="width: 45%"></div>
+    </div>
 </div>
 <section class="flex mx-0 md:mx-2 lg:mx-3">
     <article class="w-4/12">heade</article>

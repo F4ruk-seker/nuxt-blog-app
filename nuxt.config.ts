@@ -7,5 +7,16 @@ export default defineNuxtConfig({
   ],
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css'
-  ]
+  ],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'dark',
+  },
 })

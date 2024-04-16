@@ -13,7 +13,7 @@
 </article>
 </section>
 <section class="flex absolute w-full h-screen top-0 ">
-    <article class="mt-16 overflow-y-scroll max-h-screen w-full">
+    <article class="mt-16 overflow-y-scroll max-h-screen w-full scrollbar-pars">
         <article class="w-4/12 h-full fixed ">heade</article>
         <article class="w-full border " ><div style="height: 220vh;"></div></article>
     </article>

@@ -33,12 +33,11 @@
 </article>
 </header>
 <section class="absolute w-full h-screen top-0 pt-16 flex overflow-y-scroll scrollbar-pars ">
-    <article class="w-2/12 h-full sticky top-0">
+    <article class="w-3/12 h-full sticky top-0">
         <MenuAsideMenu  />
     </article>
-    <article class="w-full " >
-        <div class="grid grid-cols-4 gap-4 ">
-
+    <article class="w-full mx-0 md:mx-2" >
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
         <CardBlogPreView />
         <CardBlogPreView />
         <CardBlogPreView />

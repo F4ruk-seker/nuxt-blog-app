@@ -33,11 +33,11 @@
 </article>
 </section>
 <section class="flex absolute w-full h-screen top-0 ">
-    <article class="mt-16 overflow-y-scroll max-h-screen w-full scrollbar-pars flex">
+    <article class="mt-16 w-full flex">
         <article class="w-2/12 h-full">
             <MenuAsideMenu  />
         </article>
-        <article class="w-full border " >
+        <article class="w-full border overflow-y-scroll max-h-screen scrollbar-pars " >
             <span >im context</span>
             <br>
             <span style="font-family: 'Nunito';">im context</span>

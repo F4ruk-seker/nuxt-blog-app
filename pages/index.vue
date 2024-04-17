@@ -25,7 +25,6 @@
                 </li>
                 <li class="mx-2 block md:hidden">
                     <button class="border border-gray-600 bg-gray-900 px-2 py-1 rounded font-bold text-white shadow-sm" @click="expend_mobil_menu=true">
-                        <span class="hidden md:block font-[Ubuntu] font-normal">./CC</span>
                         <span class="block md:hidden">
                             <font-awesome-icon :icon="['fas', 'bars']" /> 
                         </span>

@@ -26,7 +26,8 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
         'Nunito': [400, 500, 600, 700],
-        'Roboto':[400, ]
+        'Roboto':[400, 500, 700 ],
+        'Ubuntu':[400, 500, 700 ]
     },
 },
 })

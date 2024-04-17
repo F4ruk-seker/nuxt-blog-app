@@ -1,5 +1,5 @@
 <template>
-<aside class="text-center border">
+<aside class="text-center">
     <strong>text</strong>
 </aside>
 </template>

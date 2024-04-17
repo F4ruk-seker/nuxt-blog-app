@@ -1,32 +1,22 @@
 <template>
-  <div class="relative">
-    <div class="flex justify-between md:w-1/2 md:rounded-full border-2 border-y-0 m-auto py-5">
-      <button class="border-0 p-3 hover:text-orange-400" @click="decrease">
-        <font-awesome-icon :icon="['fas', 'arrow-left']" />
-      </button>
-      <div class="m-3 shadow-lg">
+<button class="border border-gray-600 bg-gray-900 px-2 py-1 rounded font-bold text-white shadow-sm relative" @click="walk">
+    <div  style="min-width: 22px; max-width: 22px;" >
         <Transition name="slide-fade">
-          <span v-if="colorMode.preference === 'system'"><font-awesome-icon  :icon="['fas', 'wand-sparkles']" /></span>
+            <span v-if="colorMode.preference === 'system'"><font-awesome-icon  :icon="['fas', 'wand-sparkles']" /></span>
         </Transition>
         <Transition name="slide-fade">
-          <span v-if="colorMode.preference === 'light'" ><font-awesome-icon :icon="['fas', 'sun']" /></span>
+            <span v-if="colorMode.preference === 'light'" ><font-awesome-icon :icon="['fas', 'sun']" /></span>
         </Transition>
         <Transition name="slide-fade">
-          <span v-if="colorMode.preference === 'dark'"  ><font-awesome-icon :icon="['fas', 'moon']" /></span>
+            <span v-if="colorMode.preference === 'dark'"  ><font-awesome-icon :icon="['fas', 'moon']" /></span>
         </Transition>
         <Transition name="slide-fade">
-          <span v-if="colorMode.preference === 'sepia'" ><font-awesome-icon :icon="['fas', 'mug-hot']" /></span>
+            <span v-if="colorMode.preference === 'sepia'" ><font-awesome-icon :icon="['fas', 'mug-hot']" /></span>
         </Transition>
-      </div>
-      <button class="border-0 p-3 hover:text-orange-400" @click="increase">
-        <font-awesome-icon :icon="['fas', 'arrow-right'] " />
-      </button>
     </div>
-    <span class="absolute mx-auto text-center w-full bottom-0 mb-2"> {{ colorMode.preference }} </span>
-
-  </div>
+</button>
 </template>
-  
+
 <script setup>
 const index = ref(0)
 const options = ref([
@@ -64,7 +54,15 @@ function decrease() {
     index.value = options.value.length - 1
   }
   set_icon()
+}
 
+function walk(){
+    if (index.value++ == options.value.length){
+        index.value = 0
+    } else {
+        index.value++
+    }
+    set_icon()
 }
 
 function set_icon() {
@@ -72,8 +70,6 @@ function set_icon() {
 }
 
 const colorMode = useColorMode()
-
-
 
 onBeforeUpdate(()=>{
   for (let _ = 0; _ < options.value.length; _++) {
@@ -84,6 +80,7 @@ onBeforeUpdate(()=>{
 })
 
 </script>
+
 
 <style scoped>
 .slide-fade-enter-active {
@@ -100,6 +97,7 @@ onBeforeUpdate(()=>{
   opacity: 0;
 }
 </style>
+
 
 <style>
 

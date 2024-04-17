@@ -10,12 +10,9 @@
     <li class="my-2">
         <hr>
     </li>
-    <li class="border border-orange-500 rounded p-1 mb-2">
-        <strong>xd</strong>
-    </li>
     <li class="w-full flex mb-2">
         <!--has-[:checked]-->
-        <label class="min-w-full p-1 rounded border border-orange-500 hover:border-orange-600 has-[:checked]:bg-orange-600 has-[:checked]:text-white">
+        <label class="min-w-full p-1 rounded border border-orange-500 hover:border-orange-600 has-[:checked]:bg-orange-600 has-[:checked]:text-white shadow-lg">
             <input class="hidden" type="checkbox" name="todo"> 
             <strong class="">xd</strong>
         </label>

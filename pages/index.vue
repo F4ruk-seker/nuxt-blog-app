@@ -33,11 +33,18 @@
 </article>
 </section>
 <section class="flex absolute w-full h-screen top-0 ">
-    <article class="mt-16 overflow-y-scroll max-h-screen w-full scrollbar-pars">
-        <article class="w-2/12 h-full fixed">
+    <article class="mt-16 overflow-y-scroll max-h-screen w-full scrollbar-pars flex">
+        <article class="w-2/12 h-full">
             <MenuAsideMenu  />
         </article>
-        <article class="w-full border " ><div style="height: 220vh;"></div></article>
+        <article class="w-full border " >
+            <span >im context</span>
+            <br>
+            <span style="font-family: 'Nunito';">im context</span>
+            <br>
+            <span class="font-[Roboto] text-3xl font-bold" style="font-weight: 400;">im context</span>
+            <div style="height: 250vh;"></div>
+        </article>
     </article>
     </section>
 </template>
@@ -45,6 +52,6 @@
 <script setup>
 import ColorMode from '@/components/theme/ColorMode.vue';
 
-const expend_search_bar = ref(true)
+const expend_search_bar = ref(false)
 // + (modal_menu ? 'show':'hidden')"
 </script>

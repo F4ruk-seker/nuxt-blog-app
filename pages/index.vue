@@ -81,9 +81,7 @@
 </template>
 
 <script setup>
-import ColorMode from '@/components/theme/ColorMode.vue';
-
 const expend_search_bar = ref(false)
 const expend_mobil_menu = ref(false)
-// + (modal_menu ? 'show':'hidden')"
 </script>
+

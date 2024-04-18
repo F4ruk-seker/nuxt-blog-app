@@ -15,40 +15,6 @@
 
 <script setup>
 const dark_mode = ref(false)
-
-const options = ref([
-  {
-    value: 'system',
-    icon: 'wand-sparkles'
-  },
-  {
-    value: 'light',
-    icon: 'sun'
-  },
-  {
-    value: 'dark',
-    icon: 'moon'
-  },
-  {
-    value: 'sepia',
-    icon: 'mug-hot'
-  }
-])
-
-
-function walk(){
-    if (index.value++ == options.value.length){
-        index.value = 0
-    } else {
-        index.value++
-    }
-    set_icon()
-}
-
-function set_icon() {
-  colorMode.preference = options.value[index.value].value
-}
-
 const colorMode = useColorMode()
 
 watch(dark_mode, new_dark_mode => {

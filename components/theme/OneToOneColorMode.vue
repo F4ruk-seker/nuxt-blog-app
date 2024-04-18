@@ -1,24 +1,21 @@
 <template>
-<button class="border border-gray-600 bg-gray-900 px-2 py-1 rounded font-bold text-white shadow-sm relative" @click="walk">
-    <div  style="min-width: 22px; max-width: 22px;" >
+<button class="border border-gray-600 h-full px-2 py-1  bg-gray-900 rounded font-bold text-white shadow-sm relative" @click="dark_mode=!dark_mode">
+    <div class="w-full h-full flex m-auto text-center justify-center" style="min-width: 22px; max-width: 22px;" >
         <Transition name="slide-fade">
-            <span v-if="colorMode.preference === 'system'"><font-awesome-icon  :icon="['fas', 'wand-sparkles']" /></span>
-        </Transition>
-        <Transition name="slide-fade">
-            <span v-if="colorMode.preference === 'light'" ><font-awesome-icon :icon="['fas', 'sun']" /></span>
-        </Transition>
-        <Transition name="slide-fade">
-            <span v-if="colorMode.preference === 'dark'"  ><font-awesome-icon :icon="['fas', 'moon']" /></span>
-        </Transition>
-        <Transition name="slide-fade">
-            <span v-if="colorMode.preference === 'sepia'" ><font-awesome-icon :icon="['fas', 'mug-hot']" /></span>
+            <span class="absolute" v-if="colorMode.preference === 'dark'" >
+              <font-awesome-icon :icon="['fas', 'moon']" />
+            </span>
+            <span class="absolute" v-else>
+              <font-awesome-icon :icon="['fas', 'sun']" />
+            </span>
         </Transition>
     </div>
 </button>
 </template>
 
 <script setup>
-const index = ref(0)
+const dark_mode = ref(false)
+
 const options = ref([
   {
     value: 'system',
@@ -38,23 +35,6 @@ const options = ref([
   }
 ])
 
-function increase() {
-  if (options.value.length - 1 > index.value) {
-    index.value++;
-  } else {
-    index.value = 0
-  }
-  set_icon()
-}
-
-function decrease() {
-  if (index.value - 1 >= 0) {
-    index.value--;
-  } else {
-    index.value = options.value.length - 1
-  }
-  set_icon()
-}
 
 function walk(){
     if (index.value++ == options.value.length){
@@ -71,29 +51,25 @@ function set_icon() {
 
 const colorMode = useColorMode()
 
-onBeforeUpdate(()=>{
-  for (let _ = 0; _ < options.value.length; _++) {
-    if (options.value[_].value === colorMode.preference){
-      index.value = _
-    }
-  }
+watch(dark_mode, new_dark_mode => {
+  colorMode.preference = new_dark_mode ? 'dark':'light'
 })
 
 </script>
 
 
 <style scoped>
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
 .slide-fade-enter-active {
-  transition: all 0.3s ease-out;
+  transition: all .3s ease;
 }
-
 .slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
   opacity: 0;
 }
 </style>

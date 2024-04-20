@@ -12,14 +12,18 @@
     </li>
     <li class="w-full flex mb-2">
         <!--has-[:checked]-->
+        <div class="flex">
+            <strong>name</strong>
+            <hr class="w-full my-auto ms-2">
+        </div> 
         <label class="min-w-full p-1 rounded border border-orange-500 hover:border-orange-600 has-[:checked]:bg-orange-600 has-[:checked]:text-white shadow-lg">
             <input class="hidden" type="checkbox" name="todo"> 
-            <strong class="">xd</strong>
+            <strong class="">Life</strong>
         </label>
     </li>
 
     <li>
-      
+
     </li>
     
 </ul>

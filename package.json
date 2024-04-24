@@ -13,7 +13,10 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "@nuxtjs/tailwindcss": "^6.11.4",
+    "@pinia/nuxt": "^0.5.1",
+    "install": "^0.13.0",
     "nuxt": "^3.11.2",
+    "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

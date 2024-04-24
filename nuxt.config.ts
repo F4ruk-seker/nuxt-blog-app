@@ -4,19 +4,20 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@pinia/nuxt',
   ],
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css'
   ],
-
+  
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
-
+ 
   colorMode: {
     classSuffix: '',
     preference: 'light',

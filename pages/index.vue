@@ -1,6 +1,6 @@
 <template>
 
-<MenuHeaderMenu :expend_mobil_menu="expend_mobil_menu" />
+<MenuHeaderMenu :expend_mobil_menu="expend_mobil_menu" @search_action="searchAction" />
 
 <section class="absolute w-full h-screen top-0 pt-16 overflow-y-scroll scrollbar-pars ">
 <article>
@@ -14,21 +14,22 @@
     <footer>
         <hr>
         cscs
-        {{ selected_tags }}
+        selected tags :{{ selected_tags }}
+        <br>
+        searchText : 
     </footer>
 </section>
 </template>
 
 <script setup>
-import { watch } from 'vue'
+import { watch, ref } from 'vue'
 import TagSelectMenu from '~/components/menu/TagSelectMenu.vue';
+
 const expend_mobil_menu = ref(false)
 const config = useRuntimeConfig()
 
 const blogs = ref([])
 const selected_tags = ref([])
-
-//const search_text
 
 await useFetch(config.public.API_HOST + 'content/all/?type=blog').then(response => {
     response.data.value.forEach(blog => {blog.show = true})
@@ -62,10 +63,16 @@ function has_selected_tag(){
     });
 }
 
-watch(selected_tags, (_)=>{
-    console.log('work')
+function searchAction(text){
+    blogs.value.forEach(blog => {
+        blog.show = blog.title.toLowerCase().includes(text)
+    })
     has_selected_tag()
-},{ deep: true })
 
+}
+
+watch(selected_tags, (_)=>{
+    has_selected_tag()
+}, { deep: true })
 </script>
 

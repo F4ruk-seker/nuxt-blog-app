@@ -6,7 +6,15 @@
             <h1 class="text-gray-700 my-auto font-semibold">./blog @f4rukseker</h1>
         </article>
         <article :class="'flex mx-0 md:mx-2 ' + (expend_search_bar ? 'w-full ms-2':'md:w-full min-w-max text-right float-end justify-end')">
-            <SearchBar :class="expend_search_bar ? '': 'hidden md:block'" :expend="expend_search_bar" />
+    
+            <div :class="expend_search_bar ? '': 'hidden md:block w-full'">
+                <div class="w-full">
+                    <input type="text" 
+                    v-model="searchText"
+                    class="caret-orange-500 rounded-2xl border focus:ring-blue-500 focus:border-gray-600  outline-none bg-gray-100 dark:focus:border-0 dark:active:border-0 border-gray-300 text-orange-700 text-sm font-bold block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                    placeholder=">_ search" />
+                </div>
+            </div>
             <button class="rounded-full border ms-2 flex h-[42px] w-[42px] md:hidden" @click="expend_search_bar=!expend_search_bar ">
                 <span class="text-center justify-center m-auto">
                     <font-awesome-icon :icon="expend_search_bar ? ['fas', 'x']:['fas', 'magnifying-glass']"/>
@@ -46,9 +54,16 @@
 
 <script setup>
 const expend_search_bar = ref(false)
+const searchText = ref('')
+
+const emit = defineEmits(['search_action'])
 
 const props = defineProps({
-    expend_mobil_menu:Boolean
+    expend_mobil_menu:Boolean,
+})
+
+watch(searchText, (_)=>{
+    emit('search_action', _)
 })
 
 </script>

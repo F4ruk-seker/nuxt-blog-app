@@ -16,7 +16,6 @@
 <script setup>
 const config = useRuntimeConfig()
 const tags = ref([])
-const blogs = ref([])
 await useFetch(config.public.API_HOST + 'content/type/blog').then(response => {
     response.data.value.sub_tags.forEach(element => {
     let tag_list = []
@@ -24,8 +23,4 @@ await useFetch(config.public.API_HOST + 'content/type/blog').then(response => {
     tags.value = tag_list
 });
 })
-await useFetch(config.public.API_HOST + 'content/all/?type=blog').then(response => {
-    blogs.value = response.data.value;
-})
-
 </script>

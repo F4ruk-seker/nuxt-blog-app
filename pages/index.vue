@@ -7,11 +7,9 @@
     <TagSelectMenu />
 </article>
     <article class="container m-auto" >
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
-            <CardBlogPreView />
-            <CardBlogPreView />
-            <CardBlogPreView />
-        </div>
+        <ul class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+            <li v-for="blog in blogs"><CardBlogPreView :blog="blog" /></li>
+        </ul>
     </article>
     <footer>
         <hr>
@@ -22,7 +20,13 @@
 
 <script setup>
 import TagSelectMenu from '~/components/menu/TagSelectMenu.vue';
-
 const expend_mobil_menu = ref(false)
+const config = useRuntimeConfig()
+
+const blogs = ref([])
+await useFetch(config.public.API_HOST + 'content/all/?type=blog').then(response => {
+    blogs.value = response.data.value;
+})
+
 </script>
 

@@ -10,7 +10,12 @@ export default defineNuxtConfig({
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css'
   ],
-  
+  runtimeConfig:{
+    API_HOST: 'http://127.0.0.1:8000/api/',
+    public:{
+      API_HOST: 'http://127.0.0.1:8000/api/',
+    }
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

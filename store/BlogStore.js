@@ -11,7 +11,7 @@ export const useBlogStore = defineStore('blogStore', {
       actions: {
         async fetch_blog_tags() {
             let tag_list = []
-            await fetch('content/type/blog').then((response) => {  
+            await $fetch('http://127.0.0.1:8000/api/' + 'content/type/blog').then((response) => {  
                 response.data.sub_tags.forEach(element => {
                     element.tags.forEach(tag=>{tag.selected = false;tag_list.push(tag)})
                 });

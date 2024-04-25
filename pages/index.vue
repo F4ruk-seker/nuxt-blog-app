@@ -28,6 +28,8 @@ const config = useRuntimeConfig()
 const blogs = ref([])
 const selected_tags = ref([])
 
+//const search_text
+
 await useFetch(config.public.API_HOST + 'content/all/?type=blog').then(response => {
     response.data.value.forEach(blog => {blog.show = true})
     blogs.value = response.data.value;

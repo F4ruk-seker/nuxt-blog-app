@@ -5,7 +5,7 @@
         v-for="tag, index in tags"
         v-bind:key="index"
         @click="setSelect(tag)"
-        :class="'w-full flex p-1 border mx-0.5 hover:bg-gray-300 font-semibold cursor-pointer ' + (tag.selected ? 'bg-orange-400 text-white':'')"
+        :class="'w-full flex p-1 border mx-0.5  font-semibold cursor-pointer ' + (tag.selected ? 'bg-orange-600 text-white hover:bg-orange-400':'hover:bg-gray-300')"
     >
         {{ tag.name }}
     </li>

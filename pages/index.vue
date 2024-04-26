@@ -1,10 +1,10 @@
 <template>
 
-<MenuHeaderMenu :expend_mobil_menu="expend_mobil_menu" @search_action="searchAction" />
+<MenuHeaderMenu :expend_mobil_menu="expend_mobil_menu" :selected_tags="selected_tags" @search_action="searchAction" />
 
 <section class="absolute w-full h-screen top-0 pt-16 overflow-y-scroll scrollbar-pars ">
 <article>
-    <TagSelectMenu @setSelectedTag="filter_tag"/>
+    <TagSelectMenu @setSelectedTag="filter_tag" :selected_tags="selected_tags"/>
 </article>
     <article class="container m-auto" >
         <ul class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
@@ -37,7 +37,7 @@ await useFetch(config.public.API_HOST + 'content/all/?type=blog').then(response 
 })
 
 function filter_tag(tag) {
-    if (tag.selected){
+    if (!selected_tags.value.includes(tag.id)){
         selected_tags.value.push(tag.id)
     } else {
         const indexToRemove = selected_tags.value.indexOf(tag.id);
@@ -64,11 +64,10 @@ function has_selected_tag(){
 }
 
 function searchAction(text){
+    // selected_tags.value.pop()
     blogs.value.forEach(blog => {
         blog.show = blog.title.toLowerCase().includes(text)
     })
-    has_selected_tag()
-
 }
 
 watch(selected_tags, (_)=>{

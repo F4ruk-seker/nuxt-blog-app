@@ -60,6 +60,7 @@ const emit = defineEmits(['search_action'])
 
 const props = defineProps({
     expend_mobil_menu:Boolean,
+    selected_tags:Array
 })
 
 watch(searchText, (_)=>{

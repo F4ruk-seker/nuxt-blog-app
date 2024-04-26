@@ -31,10 +31,14 @@ const config = useRuntimeConfig()
 const blogs = ref([])
 const selected_tags = ref([])
 
-await useFetch(config.public.API_HOST + 'content/all/?type=blog').then(response => {
-    response.data.value.forEach(blog => {blog.show = true})
-    blogs.value = response.data.value;
-})
+function load_blogs() {
+    $fetch(config.public.API_HOST + 'content/all/?type=blog').then(response => {
+        response.forEach(blog => {blog.show = true})
+        blogs.value = response;
+    })
+}
+
+onMounted(load_blogs)
 
 function filter_tag(tag) {
     if (!selected_tags.value.includes(tag.id)){
@@ -73,5 +77,6 @@ function searchAction(text){
 watch(selected_tags, (_)=>{
     has_selected_tag()
 }, { deep: true })
+
 </script>
 

@@ -11,9 +11,9 @@ export default defineNuxtConfig({
     '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   runtimeConfig:{
-    API_HOST: 'http://127.0.0.1:8000/api/',
+    API_HOST: process.env.API_PATH,
     public:{
-      API_HOST: 'http://127.0.0.1:8000/api/',
+      API_HOST: process.env.API_PATH,
     }
   },
   postcss: {

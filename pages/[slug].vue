@@ -1,21 +1,17 @@
 <template>
-<HeaderDetailMenu />
+<HeaderDetailMenu 
+    :fontFamilyName="fontList[selectedFontIndex].name"
+    @changeFont="changeFont"
+    :fontSize="getFontSize()"
+    @fontSize="fontSize++"
+    :fontWeight="getFontWeight()"
+    @fontWeight="fontWeight++"
+    />
 
 <section class="absolute w-full h-screen top-0 pt-16 overflow-y-scroll overflow-x-hidden scrollbar-pars ">
     
-    <button @click="changeFont">
-        fontChange
-    </button>
-    <br>
-    <button @click="fontSize++">
-        Size
-    </button>
-    <br>
-    <button @click="fontWeight++">
-        bolder
-    </button>
 
-    <article :class="`container m-auto  ${fontList[selectedFontIndex].font} ${getFontSize()} ${getFontWeight()}`">
+    <article :class="`container m-auto px-2  ${fontList[selectedFontIndex].font} ${getFontSize()} font-${getFontWeight()}`">
         
         The standard Lorem Ipsum passage, used since the 1500s
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -31,12 +27,12 @@
 
         1914 translation by H. Rackham
         "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
-    <hr>
+    
+</article>
+<hr>
     <span class="text-lg">
         tex : {{  context }}
-    </span>    
-</article>
-
+    </span>  
 </section>
 
 
@@ -102,11 +98,11 @@ const fontWeight = ref(1)
 function getFontWeight() {
     switch(fontWeight.value) {
         case 0:
-            return 'font-normal'
+            return 'normal'
         case 1:
-            return 'font-bold'
+            return 'bold'
         case 2:
-            return 'font-extrabold'
+            return 'extrabold'
         default:
             fontWeight.value = 0        
             getFontWeight()

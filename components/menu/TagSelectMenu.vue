@@ -35,8 +35,4 @@ function setSelect(tag) {
     emit('setSelectedTag', tag)
 }
 
-function is_in_selected_list(tag) {
-    return props.selected_tags.includes(tag.id)
-    //props.selected_tags.includes(tag.id)
-}
 </script>

@@ -17,7 +17,7 @@
             </button>
             <!--button class="min-w-max" @click="$emit('fontWeight')">
                 <font-awesome-icon :icon="['fas', 'bold']" />
-                <span class="font-bold">: {{ fontWeight }}</span>
+                <span class="font-bold">: {{ fontWeight }}</span>x
             </button-->
         </article>
         <article class="min-w-max md:w-full text-center mx-4 md:mx-0 font-bold">Dark</article>

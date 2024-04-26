@@ -5,7 +5,7 @@
         v-for="tag, index in tags"
         v-bind:key="index"
         @click="setSelect(tag)"
-        :class="'w-full flex p-1 border mx-0.5  font-semibold cursor-pointer ' + (is_in_selected_list(tag) ? 'bg-orange-600 text-white hover:bg-orange-400':'hover:bg-gray-300')"
+        :class="'w-full flex p-1 border mx-0.5  font-semibold cursor-pointer ' + (selected_tags.includes(tag.id) ? 'bg-orange-600 text-white hover:bg-orange-400':'hover:bg-gray-300')"
     >
         {{ tag.name }}
     </li>
@@ -32,7 +32,6 @@ const props = defineProps({
 })
 
 function setSelect(tag) {
-    console.log('trigger')
     emit('setSelectedTag', tag)
 }
 

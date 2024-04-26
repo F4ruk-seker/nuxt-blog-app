@@ -6,19 +6,19 @@
                 <font-awesome-icon :icon="['fas', 'blog']" />
             </a>
         </article>
-        <article class="w-full text-center flex justify-between">
-            <button class="min-w-max" @click="$emit('changeFont')">
+        <article class="w-min text-center flex justify-between">
+            <button class="min-w-max me-1" @click="$emit('changeFont')">
                 <font-awesome-icon :icon="['fas', 'font']" />
                 <span class="font-bold">: {{ fontFamilyName }}</span>
             </button>
-            <button class="min-w-max" @click="$emit('fontSize')">
+            <button class="min-w-max ms-1" @click="$emit('fontSize')">
                 <font-awesome-icon :icon="['fas', 't']" />
                 <span class="font-bold">: {{ fontSize }}</span>
             </button>
-            <button class="min-w-max" @click="$emit('fontWeight')">
+            <!--button class="min-w-max" @click="$emit('fontWeight')">
                 <font-awesome-icon :icon="['fas', 'bold']" />
                 <span class="font-bold">: {{ fontWeight }}</span>
-            </button>
+            </button-->
         </article>
         <article class="min-w-max md:w-full text-center mx-4 md:mx-0 font-bold">Dark</article>
     </nav>
@@ -30,13 +30,13 @@
 const props = defineProps({
     fontFamilyName:String,
     fontSize:String,
-    fontWeight:String
+    //fontWeight:String
 })
 
 const emit = defineEmits([
     'changeFont',
     'fontSize',
-    'fontWeight'
+    //'fontWeight'
 ])
 
 

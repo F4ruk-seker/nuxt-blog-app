@@ -98,13 +98,13 @@ function getFontSize() {
     }
 }
 
-const fontWeight = ref(0)
+const fontWeight = ref(1)
 function getFontWeight() {
     switch(fontWeight.value) {
         case 0:
-            return 'font-bold'
-        case 1:
             return 'font-normal'
+        case 1:
+            return 'font-bold'
         case 2:
             return 'font-extrabold'
         default:

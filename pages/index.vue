@@ -31,8 +31,8 @@ const config = useRuntimeConfig()
 const blogs = ref([])
 const selected_tags = ref([])
 
-function load_blogs() {
-    $fetch(config.public.API_HOST + 'content/all/?type=blog').then(response => {
+async function load_blogs() {
+    await $fetch(config.public.API_HOST + 'content/all/?type=blog').then(response => {
         response.forEach(blog => {blog.show = true})
         blogs.value = response;
     })

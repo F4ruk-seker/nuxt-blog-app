@@ -2,10 +2,21 @@
 <HeaderDetailMenu />
 
 <section class="absolute w-full h-screen top-0 pt-16 overflow-y-scroll overflow-x-hidden scrollbar-pars ">
-    <article :class="'container m-auto text-lg ' + (fontChange ? 'font-[Roboto]':'font-[Ubuntu]')">
-        <button :class="'border ' + (fontChange ? 'bg-orange-400':'')" @click="fontChange=!fontChange">
-            fontChange
-        </button>
+    
+    <button @click="changeFont">
+        fontChange
+    </button>
+    <br>
+    <button @click="fontSize++">
+        Size
+    </button>
+    <br>
+    <button @click="fontWeight++">
+        bolder
+    </button>
+
+    <article :class="`container m-auto  ${fontList[selectedFontIndex].font} ${getFontSize()} ${getFontWeight()}`">
+        
         The standard Lorem Ipsum passage, used since the 1500s
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
@@ -36,16 +47,71 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const context = ref()
 
-const fontChange = ref(false)
-
 function getContext() {
-    // config.public.API_HOST + 'content/' + route.params.slug
     useFetch(`${config.public.API_HOST}content/${route.params.slug}/`).then(response =>{
         context.value = response.data.value
     })
-    //content/test/
 }
 
 getContext()
+
+const selectedFontIndex = ref(0)
+const fontList = ref([
+    {
+        name: 'Nunito',
+        font: 'font-[Nunito]'
+    },
+    {
+        name: 'Roboto',
+        font: 'font-[Roboto]'
+    },
+    {
+        name: 'Ubuntu',
+        font: 'font-[Ubuntu]'
+    },
+])
+
+function changeFont() {
+    if (fontList.value.length-1 === selectedFontIndex.value){
+        selectedFontIndex.value = 0
+    } else {
+        selectedFontIndex.value++
+    }
+}
+
+const fontSize = ref(0)
+function getFontSize() {
+    switch(fontSize.value) {
+        case 0:
+            return 'text-lg'
+        case 1:
+            return 'text-xl'
+        case 2:
+            return 'text-2xl'
+        case 3:
+            return 'text-3xl'
+        case 4:
+            return 'text-4xl'
+        default:
+            fontSize.value = 0        
+            getFontSize()
+    }
+}
+
+const fontWeight = ref(0)
+function getFontWeight() {
+    switch(fontWeight.value) {
+        case 0:
+            return 'font-bold'
+        case 1:
+            return 'font-normal'
+        case 2:
+            return 'font-extrabold'
+        default:
+            fontWeight.value = 0        
+            getFontWeight()
+    }
+}
+
 
 </script>

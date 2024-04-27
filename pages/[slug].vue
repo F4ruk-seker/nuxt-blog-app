@@ -41,6 +41,15 @@ async function getContext() {
 
 await getContext()
 
+useSeoMeta({
+  title: context.value.title,
+  ogTitle: context.value.title,
+  description: context.value.seo_description,
+  ogDescription: context.value.seo_description,
+  ogImage: context.value.seo_image_url,
+  twitterCard: 'summary_large_image',
+})
+
 const selectedFontIndex = ref(0)
 const fontList = ref([
     {

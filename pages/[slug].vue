@@ -33,13 +33,13 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const context = ref()
 
-function getContext() {
-    useFetch(`${config.public.API_HOST}content/${route.params.slug}/`).then(response =>{
+async function getContext() {
+    await useFetch(`${config.public.API_HOST}content/${route.params.slug}/`).then(response =>{
         context.value = response.data.value
     })
 }
 
-getContext()
+await getContext()
 
 const selectedFontIndex = ref(0)
 const fontList = ref([

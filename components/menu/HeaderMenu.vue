@@ -1,6 +1,6 @@
 <template>
 
-<header class="fixed w-full top-0 z-10 bg-white dark:bg-gray-900">
+<header class="fixed w-full top-0 z-10 bg-white dark:bg-gray-800">
     <nav class="flex py-2 sticky top-0">
         <article :class="!expend_search_bar ? 'w-full md:w-4/12 my-auto ms-2':'hidden'">
             <h1 class="text-gray-700 my-auto font-semibold">./blog @f4rukseker</h1>

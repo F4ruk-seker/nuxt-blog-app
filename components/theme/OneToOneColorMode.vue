@@ -65,12 +65,9 @@ body {
   }
 } */
 .dark body {
-  background-color: #091a28;
-  color: #ebf4f1;
-
-  .select-color-mode{
-    @apply text-teal-600
-  }
+  /* background-color: #030303;
+  color: #ebf4f1; */
+  @apply bg-gray-800 text-white;
 }
 
 .sepia body {

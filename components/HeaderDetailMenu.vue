@@ -1,5 +1,5 @@
 <template>
-<header class="fixed w-full top-0 z-10 bg-white dark:bg-gray-900 border-b border-orange-400 shadow">
+<header class="fixed w-full top-0 z-10 bg-white dark:bg-gray-800 border-b border-orange-400 shadow">
     <nav class="flex py-2 sticky top-0">
         <article class="min-w-max md:w-full my-auto mx-4">
             <a href="/" class="">

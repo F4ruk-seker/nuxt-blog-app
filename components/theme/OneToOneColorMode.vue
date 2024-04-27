@@ -22,7 +22,6 @@ watch(dark_mode, new_dark_mode => {
 })
 
 onBeforeUpdate(()=>{
-  console.log(colorMode.preference)
   dark_mode.value = colorMode.preference ==='dark'
 })
 

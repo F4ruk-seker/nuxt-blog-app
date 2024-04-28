@@ -41,6 +41,7 @@ const { data, pending, error, refresh } = await useAsyncData(
 )
 
 context.value = data.value
+
 /*
 async function getContext() {
     await useFetch(`${config.public.API_HOST}content/${route.params.slug}/`).then(response =>{

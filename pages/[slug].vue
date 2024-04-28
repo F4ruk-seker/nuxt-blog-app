@@ -21,6 +21,7 @@
 <script setup>
 import { marked } from 'marked'
 
+
 const getHtmlFromMark = (mark) => {
     if (mark){
         return marked.parse(mark);
@@ -33,17 +34,22 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const context = ref()
 
+
+const { data, pending, error, refresh } = await useAsyncData(
+  'context',
+  () => $fetch(`${config.public.API_HOST}content/${route.params.slug}/`)
+)
+
+context.value = data.value
+/*
 async function getContext() {
     await useFetch(`${config.public.API_HOST}content/${route.params.slug}/`).then(response =>{
         context.value = response.data.value
     })
 }
 
-const { data, pending, error, refresh } = await useAsyncData(
-  'context',
-  async () => await $fetch(`${config.public.API_HOST}content/${route.params.slug}/`)
-)
-context.value = data.value
+await getContext()
+*/
 
 useSeoMeta({
   title: context.value.title + ' - F4',
@@ -52,6 +58,7 @@ useSeoMeta({
   ogDescription: context.value.seo_description,
   ogImage: context.value.seo_image_url,
   twitterCard: 'summary_large_image',
+  author: 'F4ruk-Seker'
 })
 
 const selectedFontIndex = ref(0)

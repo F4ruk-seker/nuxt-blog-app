@@ -39,10 +39,14 @@ async function getContext() {
     })
 }
 
-await getContext()
+const { data, pending, error, refresh } = await useAsyncData(
+  'context',
+  () => $fetch(`${config.public.API_HOST}content/${route.params.slug}/`)
+)
+context.value = data.value
 
 useSeoMeta({
-  title: context.value.title,
+  title: context.value.title + ' - F4',
   ogTitle: context.value.title,
   description: context.value.seo_description,
   ogDescription: context.value.seo_description,

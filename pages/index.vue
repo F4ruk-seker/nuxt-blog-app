@@ -40,6 +40,16 @@ async function load_blogs() {
 
 onMounted(load_blogs)
 
+// useSeoMeta({
+//   title: context.value.title + ' - F4',
+//   ogTitle: context.value.title,
+//   description: context.value.seo_description,
+//   ogDescription: context.value.seo_description,
+//   ogImage: context.value.seo_image_url,
+//   twitterCard: 'summary_large_image',
+// })
+
+
 function filter_tag(tag) {
     if (!selected_tags.value.includes(tag.id)){
         selected_tags.value.push(tag.id)
